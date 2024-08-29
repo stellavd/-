@@ -1,0 +1,70 @@
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+        if classifier == "KNN":
+            model = KNeighborsClassifier(n_neighbors=k)
+        elif classifier == "SVM":
+            model = SVC(kernel=kernel)
+
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
+
+        # Εκτίμηση
+        st.write("Αναφορά Κατηγοριοποίησης:")
+        st.text(classification_report(y_test, y_pred, target_names=le.classes_))
+        accuracy = accuracy_score(y_test, y_pred)
+        st.write(f"Η ακρίβεια του μοντέλου είναι: {accuracy:.2f}")
+
+    # Clustering Tab
+    with tab4:
+        st.header("Ομαδοποίηση Δεδομένων")
+
+        # επιλέγει αλγόριθμο
+        clustering_algorithm = st.selectbox("Επιλέξτε αλγόριθμο ομαδοποίησης", ["KMeans"])
+
+        #Ορισμός παραμέτρου
+        if clustering_algorithm == "KMeans":
+            k_clusters = st.slider("Επιλέξτε τον αριθμό των ομάδων (k)", min_value=1, max_value=20, value=3)
+
+        # Προετοιμασία των δεδομένων
+        feature_columns = [col for col in df.columns if col != df.columns[-1]]
+        X = df[feature_columns]
+
+        if clustering_algorithm == "KMeans":
+            model = KMeans(n_clusters=k_clusters)
+            clusters = model.fit_predict(X)
+            df['Cluster'] = clusters
+
+            #scatter plot για το clustering
+            fig, ax = plt.subplots()
+            sns.scatterplot(data=df, x=feature_columns[0], y=feature_columns[1], hue='Cluster', palette='viridis', ax=ax)
+            ax.set_title(f'Ομαδοποίηση KMeans με {k_clusters} ομάδες')
+            st.pyplot(fig)
+
+            # Silhouette Score
+            silhouette_avg = silhouette_score(X, clusters)
+            st.write(f"Silhouette Score: {silhouette_avg:.2f}")
+
+    # tab Αποτελέσματα και Σύγκριση
+    with st.sidebar:
+        st.header("Αποτελέσματα και Σύγκριση")
+
+        # Σύγκριση Αποτελεσμάτων
+        compare_button = st.button("Σύγκριση Αποτελεσμάτων")
+
+        if compare_button:
+            st.subheader("Αποτελέσματα Κατηγοριοποίησης")
+            st.write(f"Κατηγοριοποίηση Ακρίβεια: {accuracy:.2f}")
+            st.write("Κατηγοριοποίηση Αναφορά:")
+            st.text(classification_report(y_test, y_pred, target_names=le.classes_))
+
+            st.subheader("Αποτελέσματα Ομαδοποίησης")
+            st.write(f"Silhouette Score για KMeans: {silhouette_avg:.2f}")
+
+    # Tab για Πληροφορίες Εφαρμογής
+    with tab_info:
+        st.header("Πληροφορίες Εφαρμογής")
+        st.write("""
+        Η εφαρμογή αυτή εμπεριέχει εργαλεία για την ανάλυση δεδομένων μέσο της οπτικοποίησης τους, 
+        εξερευνητικής ανάλυσης, κατηγοριοποίησης και ομαδοποίησης. Φορτώνοντας ένα αρχείο τύπου CSV ή Excel 
+        και διαλέγοντας αλγόριθμο τις επιλογής σας μπορείτε να δείτε κατευθείαν τα αποτελέσματα βάση των επιλογών σας.
+        """)
