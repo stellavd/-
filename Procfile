@@ -1,1 +1,1 @@
-web: streamlit run PL.py
+web: streamlit run TL.py
