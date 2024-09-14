@@ -34,7 +34,7 @@ docker pull svd08/tlsth
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/stellavd/Web-Based-Data-Mining-And-Analysis-Project
    ```
 
 2. Navigate to the project directory:
