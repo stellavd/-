@@ -30,6 +30,13 @@ To pull the Docker image for this project, use the following command:
 docker pull svd08/tlsth
 ```
 
+To run the Docker image, use the folloing command
+
+```
+docker run -p 8051:80 --name johnny_silverhand svd08/tlsth :latest
+```
+
+
 ## Installation
 
 1. Clone this repository:
