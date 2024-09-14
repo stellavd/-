@@ -1,18 +1,60 @@
-## Dependencies
+# Project Name
 
-To run this code, you'll need to install the following dependencies:
+Brief description of your project goes here.
 
-* Streamlit (`streamlit`)
-* Pandas (`pandas`)
-* Matplotlib (`matplotlib`)
-* Seaborn (`seaborn`)
-* Scikit-learn (`scikit-learn`)
-* UMAP (`umap-learn==`)
-* NumPy (`numpy`)
-* OpenPyXL (`openpyxl`)
+## Requirements
 
-You can install these dependencies using the following command:
+This project requires the following Python libraries:
+
+- streamlit
+- pandas
+- matplotlib
+- seaborn
+- scikit-learn
+- umap-learn
+- numpy
+- openpyxl
+- setuptools
+
+You can install these requirements using pip:
+
+```
 pip install -r requirements.txt
+```
 
-##Instructions
+## Docker
 
+To pull the Docker image for this project, use the following command:
+
+```
+docker pull svd08/tlsth
+```
+
+## Installation
+
+1. Clone this repository:
+   ```
+   git clone https://github.com/yourusername/your-repo-name.git
+   ```
+
+2. Navigate to the project directory:
+   ```
+   cd your-repo-name
+   ```
+
+3. Install the required packages:
+   ```
+   pip install -r requirements.txt
+   ```
+
+## Usage
+
+Provide instructions on how to use your project here.
+
+## Contributing
+
+Instructions for how to contribute to your project.
+
+## License
+
+Specify your project's license here.
