@@ -54,3 +54,7 @@ docker run -p 8051:80 --name johnny_silverhand svd08/tlsth :latest
    pip install -r requirements.txt
    ```
 
+## Εναλλακτικά:
+
+Πατήστε τον σύνδεσμο: 
+https://webbaseddataminingandanalysisproject.streamlit.app/
