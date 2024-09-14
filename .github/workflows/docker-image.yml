@@ -17,5 +17,5 @@ jobs:
       - name: Login Build and push the image
         run: |
           docker login --username svd08 --password ${{ secrets.STOKEN }}
-          docker build ./src --tag svd08/tlsth:latest
+          docker build . --tag svd08/tlsth:latest
           docker push svd08/tlsth:latest
