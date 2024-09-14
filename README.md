@@ -1,6 +1,6 @@
 # WBDMAP
 
-Brief description of your project goes here.
+This is a project for the Software Engineering class in 2024. The goal is to create a web based data mining and analysis app for the class.
 
 ## Requirements
 
@@ -47,14 +47,3 @@ docker pull svd08/tlsth
    pip install -r requirements.txt
    ```
 
-## Usage
-
-Provide instructions on how to use your project here.
-
-## Contributing
-
-Instructions for how to contribute to your project.
-
-## License
-
-Specify your project's license here.
