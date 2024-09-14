@@ -39,7 +39,7 @@ docker pull svd08/tlsth
 
 2. Navigate to the project directory:
    ```
-   cd your-repo-name
+   cd Web-Based-Data-Mining-And-Analysis-Project
    ```
 
 3. Install the required packages:
