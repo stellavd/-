@@ -5,10 +5,10 @@ WORKDIR /app
 COPY . /app/
 
 # update and upgrade the packages and install build-base for sikit_learn
-RUN apt-get update && apt-get upgrade -y && apt-get install -y 
- build-essential 
- curl 
- software-properties-common 
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+ build-essential \
+ curl \
+ software-properties-common \ 
  llvm \
 && rm -rf /var/lib/apt/lists/*
 
